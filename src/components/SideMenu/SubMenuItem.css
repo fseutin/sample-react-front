@@ -1,0 +1,20 @@
+.side-menu .main-menu .sub-menu .sub-menu-items{
+    opacity: 1;
+    transition: opacity .2s ease-in;
+}
+.side-menu .main-menu .sub-menu .sub-menu-items.inactive{
+    /*On ne gère pas avec display:none car sinon on a pas de transition
+    On préfère le rendre transparent et lui mettre une taille nulle pour qu'on puisse plus le cliquer*/
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.side-menu .main-menu .sub-menu .sub-menu-items .sub-menu-item{
+    display: block;/*Prend toute la ligne*/
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    height: 20px;
+}

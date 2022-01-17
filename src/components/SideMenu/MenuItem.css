@@ -1,0 +1,44 @@
+.side-menu .main-menu .menu-item{
+    /*background-color: rgb(87, 158, 84);*/
+    color: #666;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    height: 40px;
+    margin-top: 20px ;/*Espace à l'extérieur de l'élément (Vertical,horizontal)*/
+    display: block;/*Prend toute la ligne*/
+    cursor: pointer;
+    border-radius: 10px;
+    max-width: 240px;
+}
+.side-menu .main-menu .menu-item.active{
+    background-color: #222;
+}
+.side-menu .main-menu .menu-item .menu-item-btn{
+    /*position: absolute;
+    left: 0;*/
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    font-size: 20px;
+    /*On centre le texte donc l'icon sera au milieu*/
+    line-height: 40px;
+    text-align: center;
+}
+.side-menu .main-menu .menu-item span{
+    position:absolute;
+    line-height: 40px;
+    display: inline-block;
+    opacity: 1;     /*Pour gérer la disparition progressive du texte*/
+    transition: opacity 0.5s ease-in;
+    max-width: 190px;
+    overflow: hidden;
+}
+.side-menu.inactive .main-menu .menu-item span{
+    /*On ne gère pas avec display:none car sinon on a pas de transition
+    On préfère le rendre transparent et lui mettre une taille nulle pour qu'on puisse plus le cliquer*/
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}

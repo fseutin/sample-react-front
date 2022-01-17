@@ -1,0 +1,14 @@
+.side-menu .main-menu .sub-menu {
+    position: relative;
+}
+.side-menu .main-menu .sub-menu .sub-menu-btn{
+    font-size: 15px;
+    height: 20px;
+    position:absolute;
+    right: 0;
+    top: -30px;
+    cursor: pointer;
+}
+.side-menu.inactive .main-menu .sub-menu .sub-menu-btn{
+    display: none;
+}

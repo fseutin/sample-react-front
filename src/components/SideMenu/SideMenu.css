@@ -1,0 +1,157 @@
+.side-menu{
+    position: fixed;
+    background-color: #000;
+    width: 300px; /*largeur du div menu*/
+    height: 100%; /*Hauteur du div menu*/
+    box-sizing: border-box; /*Tout le conteneur est contenu dans le parent incluant les bordures - Bordures intérieurs*/
+    padding: 20px 20px; /*Taille Y X des bordures*/
+    transition: width .5s ease-in;/*transition de .5s lorsque la largeur change*/
+}
+
+.side-menu.inactive{ /* inactive est une sous classe de side-menu*/
+    width: 80px;
+}
+
+.side-menu .top-section{
+   /*background-color: rgb(158, 84, 84);*/
+    position: relative;  /*Normal permet d'avoir un fils en position absolute par rapport à lui*/
+    height: 40px;/*Lui donne la hauteur pour positionné les éléments dedans*/
+}
+.side-menu .top-section .logo{
+    /*background-color: rgb(87, 158, 84);*/
+    height: 40px; /*Taille du coneteur*/
+    width: 40px;
+    overflow: hidden;
+    display: inline-block; /*Ce conteneur n'est pas seul sur sa ligne*/
+    /*On positionne le conteneur au milieu du parent*/
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.side-menu .top-section .logo img{
+    max-width: 100%;  /*L'image est redimensionnée à 100% du conteneur*/
+    max-height: 100%;
+    /*On positionne l'image au milieu du conteneur*/
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.side-menu .top-section .toggle-menu-btn {
+    color: gray;
+    display: inline-block;
+    /*On positionne le bouton au milieu du parent*/
+    position: absolute; /*Se positionne par rapport au premier parent avec une position et non au frères*/
+    /*Donc le parent doit avoir une position non static = relative*/
+    right: -40px;
+    /*top: -10px;
+    line-height: 20px;
+    text-align: center;*/
+    top: 0; /*Le haut/top du conteneur est à 50% du parent*/
+    transform: translateY(-50%); /*On monte le conteneur de -50% de la taille du bouton*/
+    cursor: pointer;
+}
+
+.side-menu.inactive .top-section .toggle-menu-btn {
+    right: -40px;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+
+.side-menu .search-controller{
+    /*background-color: rgb(87, 158, 84);*/ 
+    position: relative;
+    height: 35px;
+    margin: 20px 0;/*Espace à l'extérieur de l'élément (Vertical,horizontal)*/
+    display: block;/*Prend toute la ligne*/
+}
+.side-menu .search-controller .search-btn{
+    color: #999;
+    font-size: 20px;
+    height: 35px;
+    width: 40px;
+    position: absolute;
+    left: 0;
+}
+.side-menu .search-controller .search-btn .bi-search{
+    /*Au milieu de son parent*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.side-menu input{
+    color: #fff;/*font color*/
+    background: #333;
+    box-sizing: border-box;/*inclue le padding et les bourdure dans la taille totale de l'élément*/
+    padding-left: 40px;/*marge interieur - Début du texte*/
+    border-radius: 5px;
+    outline: none;/*Style de bordure*/
+    height: 100%;
+    width: 100%;
+    /*position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);*/
+}
+
+.side-menu .divider{
+    background-color: #333;
+    width: 100%;
+    height: 1px;
+    border-radius: 1px;
+}
+
+.side-menu .main-menu {
+    color: #666;
+    
+}
+
+
+.side-menu .side-menu-footer{
+    background-color: rgb(66, 65, 65);
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.side-menu .side-menu-footer .footer-logo{
+    width: 40px;
+    overflow: hidden;
+    /*position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);*/
+    display: inline-block;
+}
+.side-menu .side-menu-footer .footer-logo img{
+    max-width: 100%;
+}
+.side-menu .side-menu-footer .footer-info{
+    color: #DDD;
+    display: inline-block;
+    padding-left: 5px;
+    padding-top: 5px;
+    vertical-align: top;
+    opacity: 1;
+    transition: opacity .2s ease-in;
+}
+.side-menu.inactive .side-menu-footer .footer-info{
+    /*On ne gère pas avec display:none car sinon on a pas de transition
+    On préfère le rendre transparent et lui mettre une taille nulle pour qu'on puisse plus le cliquer*/
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.side-menu .side-menu-footer .footer-info h5{
+    font-size: 12px;
+}
+.side-menu .side-menu-footer .footer-info p{
+    font-size: 10px;
+}
