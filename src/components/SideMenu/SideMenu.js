@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 
-
 import './SideMenu.css'
 
 import SideSubMenu from './SubMenu'
@@ -9,12 +8,12 @@ import SubMenuItem from './SubMenuItem'
 
 
 const SideMenu = (props) => {
-    const { sideMenu } = props
+    const { sideMenu, sideMenuOpen, toggleSideMenu } = props
     
-    /* Gère l'état fermé/ouvert du SideMenu */
-    const [sideMenuOpen, toggleSideMenu] = useState(true);
+    
     /* Gère le Menu Item qui est active grace à son index */
-    const [activeItemIndex, setActiveItem] = useState(-1);
+    //const [activeItemIndex, setActiveItem] = useState(-1);
+    //Plus besoin car est géré par react-dom-router avec la classe "active" avec utilisation de Navlink
     
     return (
         <div className={`side-menu ${sideMenuOpen ? "" : "inactive"}`} >
@@ -25,8 +24,7 @@ const SideMenu = (props) => {
                     <img src ={sideMenu.logo.img} alt={sideMenu.logo.alt}/>
                 </div>
                 <div className='toggle-menu-btn' 
-                    onClick={() => {
-                        toggleSideMenu(!sideMenuOpen)}}>
+                    onClick={toggleSideMenu}>
                     { sideMenuOpen ? <i className="bi bi-x-lg"></i> : <i className="bi bi-list"></i>}
                 </div>
             </div>
@@ -49,17 +47,24 @@ const SideMenu = (props) => {
                         sideMenu.menu.map((item, index) => (
                             //On doit passer toutes les infos à chaque composant pour le render
                             <SideMenuItem 
+                                key={index} 
                                 name={item.name} 
                                 icon={item.icon}  
-                                index={index}
-                                active={activeItemIndex === index} 
+                                //index={index}
+                                //active={activeItemIndex === index} 
+                                to = {item.to}
                                 sideMenuOpen={sideMenuOpen} 
-                                onClickItem={setActiveItem} 
+                                //onClickItem={setActiveItem} 
                                 onClickItemBtn={toggleSideMenu}>
                                 {item.subMenu ? 
-                                    <SideSubMenu>
-                                        {item.subMenu.map((sub)=> (
-                                            <SubMenuItem name={sub.name} />
+                                    <SideSubMenu
+                                        sideMenuOpen={sideMenuOpen}>
+                                        {item.subMenu.map((sub,idx)=> (
+                                            <SubMenuItem 
+                                                key={idx}
+                                                name={sub.name}
+                                                to = {sub.to} 
+                                                 />
                                         ))}
                                         
                                     </SideSubMenu>
@@ -69,7 +74,7 @@ const SideMenu = (props) => {
                         ))
                     }    
                 </ul>
-            </div>
+            </div> 
 
                         {/* Footer */}
             <div className="side-menu-footer">

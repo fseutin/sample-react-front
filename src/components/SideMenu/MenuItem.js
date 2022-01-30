@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from "react-router-dom"
 import './MenuItem.css'
 
 const SideMenuItem = (props) => {
-    const {name, icon, index, active, onClickItem, onClickItemBtn, sideMenuOpen, children} = props
+    const {name, icon,  to,  onClickItemBtn, sideMenuOpen, children} = props
     /*const [ itemSelected, toggleItemSelected] = useState(false)*/
     
     return (
         <li>
-            <a className={`menu-item ${active  ? "active" : ""}`} 
-                onClick={() => {onClickItem(index) }}>
+            <NavLink to = {to} className='menu-item' 
+                //onClick={() => {onClickItem(index) }}
+                >
                 <div className='menu-item-btn' onClick={() => {onClickItemBtn(true)}}>
                     <i className={`bi ${icon}`}></i>
                 </div>
                 <span>{name}</span>
-            </a>
-            {sideMenuOpen ? 
-                children 
-                : ""}
+            </NavLink>
+            {children}
         </li>
     )
 }

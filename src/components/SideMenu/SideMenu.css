@@ -6,6 +6,8 @@
     box-sizing: border-box; /*Tout le conteneur est contenu dans le parent incluant les bordures - Bordures intérieurs*/
     padding: 20px 20px; /*Taille Y X des bordures*/
     transition: width .5s ease-in;/*transition de .5s lorsque la largeur change*/
+    opacity: 0.99;
+    
 }
 
 .side-menu.inactive{ /* inactive est une sous classe de side-menu*/

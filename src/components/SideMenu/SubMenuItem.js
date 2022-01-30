@@ -1,13 +1,14 @@
 import React from 'react'
+import { NavLink } from "react-router-dom"
 import './SubMenuItem.css'
 
 const SubMenuItem = (props) => {
-    const { name } = props
+    const { name, to } = props
     return (
         <li>
-            <a className='sub-menu-item'>
+            <NavLink to = {to} className='sub-menu-item'>
                 {name}
-            </a>
+            </NavLink>
         </li>
     )
 }

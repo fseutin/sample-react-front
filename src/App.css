@@ -20,3 +20,20 @@ li{
   list-style: none;
 }
 
+
+.content{
+ position: fixed;
+ margin-left: 300px;/*Bordure externe gauche*/
+ margin-top: 40px;
+ transition: margin-left .5s ease-in;
+ padding: 20px 20px; /*Taille Y X des bordures internes*/
+}
+.content.large{
+  margin-left: 80px;/*Bordure externe gauche*/
+  z-index: -1; /*Affiche en dessous*/
+ }
+.content .profile{
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -13,6 +13,8 @@
 }
 .side-menu .main-menu .menu-item.active{
     background-color: #222;
+    font-weight: 600;
+    color: #999;
 }
 .side-menu .main-menu .menu-item .menu-item-btn{
     /*position: absolute;
