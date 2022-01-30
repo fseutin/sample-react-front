@@ -23,10 +23,7 @@ const SideMenu = (props) => {
                 <div className='logo'>
                     <img src ={sideMenu.logo.img} alt={sideMenu.logo.alt}/>
                 </div>
-                <div className='toggle-menu-btn' 
-                    onClick={toggleSideMenu}>
-                    { sideMenuOpen ? <i className="bi bi-x-lg"></i> : <i className="bi bi-list"></i>}
-                </div>
+
             </div>
 
                         {/* Search Area*/}
@@ -78,6 +75,12 @@ const SideMenu = (props) => {
 
                         {/* Footer */}
             <div className="side-menu-footer">
+                <div className="side-menu-toggle">
+                    <div className='toggle-menu-btn' 
+                        onClick={toggleSideMenu}>
+                        { sideMenuOpen ? <i className="bi bi-x-lg"></i> : <i className="bi bi-list"></i>}
+                    </div>
+                </div>
                 <img src={sideMenu.footer.img} className='footer-logo'/>
                 <div className="footer-info">
                     <h5>{sideMenu.footer.title}</h5>

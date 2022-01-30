@@ -40,25 +40,7 @@
     top: 50%;
     transform: translateY(-50%);
 }
-.side-menu .top-section .toggle-menu-btn {
-    color: gray;
-    display: inline-block;
-    /*On positionne le bouton au milieu du parent*/
-    position: absolute; /*Se positionne par rapport au premier parent avec une position et non au frères*/
-    /*Donc le parent doit avoir une position non static = relative*/
-    right: -40px;
-    /*top: -10px;
-    line-height: 20px;
-    text-align: center;*/
-    top: 0; /*Le haut/top du conteneur est à 50% du parent*/
-    transform: translateY(-50%); /*On monte le conteneur de -50% de la taille du bouton*/
-    cursor: pointer;
-}
 
-.side-menu.inactive .top-section .toggle-menu-btn {
-    right: -40px;
-    transform: translateY(-50%) rotate(180deg);
-}
 
 
 .side-menu .search-controller{
@@ -112,17 +94,33 @@
 
 
 .side-menu .side-menu-footer{
-    background-color: rgb(66, 65, 65);
-    height: 40px;
+    height: 80px;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
-    border-radius: 10px 10px 0 0;
     box-sizing: border-box;
     padding-left: 20px;
 }
+
+.side-menu .side-menu-footer .side-menu-toggle {
+    height: 40px; /*Taille du coneteur*/
+    width: 40px;
+    color: #fff;
+    display: block;/*Prend toute la ligne*/
+    position: relative;    
+}
+
+
+.side-menu .side-menu-footer .side-menu-toggle  .toggle-menu-btn {
+    cursor: pointer;
+    font-size:  20px;
+    text-align: center;
+}
+
 .side-menu .side-menu-footer .footer-logo{
+    background-color: rgb(66, 65, 65);
+    border-radius: 10px 10px 0 0;
     width: 40px;
     overflow: hidden;
     /*position: absolute;
